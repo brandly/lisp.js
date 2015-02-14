@@ -1,0 +1,15 @@
+{
+  "name": "lisp.js",
+  "version": "0.0.1",
+  "description": "it's a lisp",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Matthew Brandly <brandly13@gmail.com> (http://brandly.me/)",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}
