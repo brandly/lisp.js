@@ -10,7 +10,7 @@ don't use this for anything that matters pls
 var Lisp = require('./');
 
 var lisp = new Lisp();
-console.log(lisp.execute('(+ 2 2)'));
+console.log(lisp.exec('(+ 2 2)'));
 ```
 
 ### testing
