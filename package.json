@@ -5,6 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "browser": "mkdir -p dist && browserify index.js --standalone Lisp -o dist/lisp.js",
     "test": "mocha"
   },
   "author": "Matthew Brandly <brandly13@gmail.com> (http://brandly.me/)",

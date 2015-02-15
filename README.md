@@ -6,6 +6,8 @@ don't use this for anything that matters pls
 
 ### usage
 
+use it with node
+
 ```js
 var Lisp = require('./');
 
@@ -32,9 +34,26 @@ lisp.js v0.0.1
 >>
 ```
 
-### testing
+or you can use it in a browser
+
+```html
+<script src="dist/lisp.js">
+<script>
+  var lisp = new Lisp();
+  console.log(lisp.exec('(+ 2 2)'));
+  //  => 4
+</script>
+```
+
+### development
 
 ```shell
 $ npm install
 $ npm test
+```
+
+to build a standalone file for the browser
+
+```shell
+$ npm run browser
 ```
