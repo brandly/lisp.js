@@ -26,6 +26,9 @@ lisp.js v0.0.1
 4
 >> (* 2 dude)
 8
+>> (define fact (lambda (n) (if (<= n 1) 1 (* n (fact (- n 1))))))
+>> (fact 10)
+3628800
 >>
 ```
 
