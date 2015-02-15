@@ -143,6 +143,15 @@ describe('stdlib', function () {
 
       assert.equal(theMin, 1);
     });
+
+    it('can apply', function () {
+      var lisp = new Lisp();
+
+      lisp.exec('(define x (list 1 2 3))');
+      var result = lisp.exec('(apply + 1 2 3 x)');
+
+      assert.equal(result, 12);
+    });
   });
 
   describe('types', function () {
