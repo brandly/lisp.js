@@ -8,14 +8,14 @@ describe('contexts', function () {
   });
 
   it('should get a reference from parent context', function () {
-    var parent = new Context({key: 'value'})
+    var parent = new Context({key: 'value'});
     var ctx = new Context({}, parent);
 
     assert.equal(ctx.get('key'), 'value');
   });
 
   it('should overwrite a reference from parent context', function () {
-    var parent = new Context({key: 'value'})
+    var parent = new Context({key: 'value'});
     var ctx = new Context({key: 'other value'}, parent);
 
     assert.equal(parent.get('key'), 'value');
@@ -23,7 +23,7 @@ describe('contexts', function () {
   });
 
   it('should find the parent with a given key', function () {
-    var parent = new Context({key: 'value'})
+    var parent = new Context({key: 'value'});
     var ctx = new Context({}, parent);
 
     assert.equal(ctx.findContextWithIdentifier('key'), parent);

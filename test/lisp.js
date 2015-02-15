@@ -16,4 +16,13 @@ describe('lisp', function () {
     var result = lisp.exec('(if (> 2 1) 123 456)');
     assert.equal(result, 123);
   });
+
+  it('can handle lambdas', function () {
+    var lisp = new Lisp();
+
+    lisp.exec('(define circle-area (lambda (r) (* pi (* r r))))');
+    var result = lisp.exec('(circle-area 3)');
+
+    assert.equal(result, 28.274333882308138);
+  });
 });
