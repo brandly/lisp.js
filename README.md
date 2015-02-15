@@ -11,6 +11,7 @@ var Lisp = require('./');
 
 var lisp = new Lisp();
 console.log(lisp.exec('(+ 2 2)'));
+//  => 4
 ```
 
 or you can use it more interactively
