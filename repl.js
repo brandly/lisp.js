@@ -9,11 +9,13 @@ var rl = readline.createInterface({
 });
 
 rl.on('line', function(line){
-  try {
-    var result = lisp.exec(line);
-    handleResult(result);
-  } catch (e) {
-    write(e.toString() + '\n');
+  if (line.length) {
+    try {
+      var result = lisp.exec(line);
+      handleResult(result);
+    } catch (e) {
+      write(e.toString() + '\n');
+    }
   }
 
   writePrompt();
