@@ -13,6 +13,21 @@ var lisp = new Lisp();
 console.log(lisp.exec('(+ 2 2)'));
 ```
 
+or you can use it more interactively
+
+```shell
+$ node repl
+lisp.js v0.0.1
+>> (+ 2 2)
+4
+>> (define dude (+ 2 2))
+>> dude
+4
+>> (* 2 dude)
+8
+>>
+```
+
 ### testing
 
 ```shell
