@@ -21,4 +21,11 @@ describe('contexts', function () {
     assert.equal(parent.get('key'), 'value');
     assert.equal(ctx.get('key'), 'other value');
   });
+
+  it('should find the parent with a given key', function () {
+    var parent = new Context({key: 'value'})
+    var ctx = new Context({}, parent);
+
+    assert.equal(ctx.findContextWithIdentifier('key'), parent);
+  });
 });
