@@ -208,4 +208,60 @@ describe('stdlib', function () {
 
     // });
   });
+
+  describe('comparisons', function () {
+    it('can check >', function () {
+      var lisp = new Lisp();
+
+      var truthy = lisp.exec('(> 23 10)');
+      var falsey = lisp.exec('(> 10 23)');
+
+      assert.equal(truthy, true);
+      assert.equal(falsey, false);
+    });
+
+    it('can check <', function () {
+      var lisp = new Lisp();
+
+      var truthy = lisp.exec('(< 10 23)');
+      var falsey = lisp.exec('(< 23 10)');
+
+      assert.equal(truthy, true);
+      assert.equal(falsey, false);
+    });
+
+    it('can check >=', function () {
+      var lisp = new Lisp();
+
+      var truthy = lisp.exec('(>= 23 10)');
+      var falsey = lisp.exec('(>= 10 23)');
+      var exactly = lisp.exec('(>= 23 23)')
+
+      assert.equal(truthy, true);
+      assert.equal(falsey, false);
+      assert.equal(exactly, true);
+    });
+
+    it('can check <=', function () {
+      var lisp = new Lisp();
+
+      var truthy = lisp.exec('(<= 10 23)');
+      var falsey = lisp.exec('(<= 23 10)');
+      var exactly = lisp.exec('(<= 23 23)')
+
+      assert.equal(truthy, true);
+      assert.equal(falsey, false);
+      assert.equal(exactly, true);
+    });
+
+    it('can check =', function () {
+      var lisp = new Lisp();
+
+      var truthy = lisp.exec('(= 23 23)');
+      var falsey = lisp.exec('(= 23 10)');
+
+      assert.equal(truthy, true);
+      assert.equal(falsey, false);
+    });
+  });
 });
