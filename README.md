@@ -4,7 +4,9 @@ with inspiration from [@maryrosecook](https://github.com/maryrosecook)'s [little
 
 don't use this for anything that matters pls
 
-> npm install --save brandly-lisp
+```shell
+$ npm install --save brandly-lisp
+```
 
 ### usage
 
