@@ -4,6 +4,8 @@ with inspiration from [@maryrosecook](https://github.com/maryrosecook)'s [little
 
 don't use this for anything that matters pls
 
+> npm install --save brandly-lisp
+
 ### usage
 
 use it with node

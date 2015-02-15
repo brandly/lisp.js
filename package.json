@@ -1,8 +1,7 @@
 {
-  "name": "lisp.js",
+  "name": "brandly-lisp",
   "version": "0.0.1",
-  "description": "it's a lisp",
-  "private": true,
+  "description": "it's a lisp interpreter",
   "main": "index.js",
   "scripts": {
     "browser": "mkdir -p dist && browserify index.js --standalone Lisp -o dist/lisp.js",
