@@ -15,7 +15,7 @@ $ npm install --save brandly-lisp
 use it with node
 
 ```js
-var Lisp = require('./');
+var Lisp = require('brandly-lisp');
 
 var lisp = new Lisp();
 console.log(lisp.exec('(+ 2 2)'));
@@ -50,6 +50,8 @@ or you can use it in a browser
   //  => 4
 </script>
 ```
+
+or you can [try it out](http://brandly.github.io/lisp-repl/)
 
 ### development
 
