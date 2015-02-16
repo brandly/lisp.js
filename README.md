@@ -1,5 +1,7 @@
 # lisp.js
 
+[![Build Status](https://travis-ci.org/brandly/lisp.js.svg?branch=master)](https://travis-ci.org/brandly/lisp.js)
+
 with inspiration from [@maryrosecook](https://github.com/maryrosecook)'s [little lisp interpreter](http://maryrosecook.com/blog/post/little-lisp-interpreter) and norvig's [lispy](http://norvig.com/lispy.html)
 
 don't use this for anything that matters pls
