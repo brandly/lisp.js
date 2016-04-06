@@ -1,8 +1,8 @@
-!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.Lisp=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
-var parse = _dereq_('./lib/parse');
-var eval = _dereq_('./lib/eval');
-var Context = _dereq_('./lib/context');
-var stdlib = _dereq_('./lib/stdlib');
+!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.Lisp=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var parse = require('./lib/parse');
+var eval = require('./lib/eval');
+var Context = require('./lib/context');
+var stdlib = require('./lib/stdlib');
 
 module.exports = Lisp;
 
@@ -14,7 +14,7 @@ Lisp.prototype.exec = function exec(str) {
   return eval(parse(str), this.globalContext);
 };
 
-},{"./lib/context":2,"./lib/eval":3,"./lib/parse":4,"./lib/stdlib":5}],2:[function(_dereq_,module,exports){
+},{"./lib/context":2,"./lib/eval":3,"./lib/parse":4,"./lib/stdlib":5}],2:[function(require,module,exports){
 
 module.exports = Context;
 
@@ -45,8 +45,8 @@ Context.prototype.findContextWithIdentifier = function (identifier) {
   }
 };
 
-},{}],3:[function(_dereq_,module,exports){
-var Context = _dereq_('./context');
+},{}],3:[function(require,module,exports){
+var Context = require('./context');
 
 module.exports = function eval(x, ctx) {
   if (ctx === undefined) {
@@ -108,8 +108,8 @@ module.exports = function eval(x, ctx) {
   }
 };
 
-},{"./context":2}],4:[function(_dereq_,module,exports){
-var tokenize = _dereq_('./tokenize');
+},{"./context":2}],4:[function(require,module,exports){
+var tokenize = require('./tokenize');
 
 module.exports = function parse(str) {
   return parenthesize(tokenize(str));
@@ -151,7 +151,7 @@ function atom(token) {
   }
 }
 
-},{"./tokenize":6}],5:[function(_dereq_,module,exports){
+},{"./tokenize":6}],5:[function(require,module,exports){
 
 module.exports = {
   'pi': Math.PI,
@@ -259,6 +259,14 @@ module.exports = {
     return a % b;
   },
 
+  and: reduceArguments(function (a, b) {
+    return a && b
+  }),
+
+  or: reduceArguments(function (a, b) {
+    return a || b
+  }),
+
   not: function (statement) {
     return !statement;
   },
@@ -292,7 +300,7 @@ function toArray(nonArray) {
   return Array.prototype.slice.call(nonArray);
 }
 
-},{}],6:[function(_dereq_,module,exports){
+},{}],6:[function(require,module,exports){
 
 module.exports = function tokenize(str) {
   return str.replace(/\(/g, ' ( ')
@@ -305,6 +313,5 @@ function hasLength(str) {
   return str.length > 0;
 }
 
-},{}]},{},[1])
-(1)
+},{}]},{},[1])(1)
 });

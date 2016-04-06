@@ -263,5 +263,31 @@ describe('stdlib', function () {
       assert.equal(truthy, true);
       assert.equal(falsey, false);
     });
+
+    it('can check and', function () {
+      var lisp = new Lisp();
+
+      var truthyCode = '(= 23 23)';
+      var falseyCode = '(= 23 10)';
+
+      var truthy = lisp.exec('(and ' + truthyCode + ' ' + truthyCode + ')');
+      var falsey = lisp.exec('(and ' + truthyCode + ' ' + falseyCode + ')');
+
+      assert.equal(truthy, true);
+      assert.equal(falsey, false);
+    });
+
+    it('can check or', function () {
+      var lisp = new Lisp();
+
+      var truthyCode = '(= 23 23)';
+      var falseyCode = '(= 23 10)';
+
+      var truthy = lisp.exec('(or ' + truthyCode + ' ' + falseyCode + ')');
+      var falsey = lisp.exec('(or ' + falseyCode + ' ' + falseyCode + ')');
+
+      assert.equal(truthy, true);
+      assert.equal(falsey, false);
+    });
   });
 });
