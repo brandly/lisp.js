@@ -61,6 +61,17 @@ module.exports = function eval(x, ctx) {
   } else if (x[0] === 'quote') {         // (quote exp)
     return x[1];
 
+  } else if (x[0] === 'cond') {
+    var conditionals = x.slice(1);
+    for (var i = 0; i < conditionals.length; i++) {
+      var cond = conditionals[i],
+          test = cond[0],
+          conseq = cond[1];
+
+      if (eval(test, ctx)) {
+        return eval(conseq, ctx);
+      }
+    }
   } else if (x[0] === 'if') {            // (if test conseq alt)
     var test = x[1],
         conseq = x[2],

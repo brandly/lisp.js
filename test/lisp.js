@@ -10,6 +10,13 @@ describe('lisp', function () {
     assert.equal(result, 314.1592653589793);
   });
 
+  it('can handle cond statements', function () {
+    var lisp = new Lisp();
+
+    var result = lisp.exec('(cond ((> 2 5) 1) ((> 5 2) 2) ((= 5 2) 3))');
+    assert.equal(result, 2);
+  });
+
   it('can handle if statements', function () {
     var lisp = new Lisp();
 
