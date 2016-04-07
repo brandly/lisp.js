@@ -63,12 +63,14 @@ module.exports = function eval(x, ctx) {
 
   } else if (x[0] === 'cond') {
     var conditionals = x.slice(1);
+    var lastIndex = conditionals.length - 1;
+
     for (var i = 0; i < conditionals.length; i++) {
       var cond = conditionals[i],
           test = cond[0],
           conseq = cond[1];
 
-      if (eval(test, ctx)) {
+      if ((i === lastIndex && test === 'else') || eval(test, ctx) === true) {
         return eval(conseq, ctx);
       }
     }
