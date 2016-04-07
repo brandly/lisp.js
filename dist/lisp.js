@@ -171,9 +171,15 @@ module.exports = {
     return a + b;
   }),
 
-  '-': reduceArguments(function (a, b) {
-    return a - b;
-  }),
+  '-': function () {
+    if (arguments.length === 1) {
+      return -arguments[0]
+    } else {
+      return reduceArguments(function (a, b) {
+        return a - b;
+      }).apply(null, arguments);
+    }
+  },
 
   '*': reduceArguments(function (a, b) {
     return a * b;

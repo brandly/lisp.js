@@ -20,6 +20,14 @@ describe('stdlib', function () {
       assert.equal(result, 10 - 1 - 2 - 3);
     });
 
+    it('can negate', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(- 10)');
+
+      assert.equal(result, -10);
+    });
+
     it('can multiply', function () {
       var lisp = new Lisp();
 
