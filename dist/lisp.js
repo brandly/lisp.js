@@ -11,7 +11,8 @@ function Lisp(context) {
 };
 
 Lisp.prototype.exec = function exec(str) {
-  return eval(parse(str), this.globalContext);
+  const results = parse(str).map((statement) => eval(statement, this.globalContext));
+  return results[results.length - 1];
 };
 
 },{"./lib/context":2,"./lib/eval":3,"./lib/parse":4,"./lib/stdlib":5}],2:[function(require,module,exports){
@@ -129,6 +130,39 @@ module.exports = function parse(str) {
 };
 
 function parenthesize(tokens) {
+  var depth = 0;
+  var index = 0;
+  var statements = [];
+
+  while (tokens && index < tokens.length) {
+    var token = tokens[index];
+
+    if (token === '(') {
+      depth += 1;
+    } else if (token === ')') {
+      depth -= 1;
+    }
+
+    if (depth < 0) {
+      throw new Error('Unbalanced parentheses: unopened ")"')
+    }
+
+    if (depth === 0) {
+      statements.push(tokens.splice(0, index + 1));
+      index = 0;
+    } else {
+      index += 1;
+    }
+  }
+
+  if (tokens.length) {
+    throw new Error('Unbalanced parentheses: unclosed "("')
+  }
+
+  return statements.map(parenthesizeStatement)
+}
+
+function parenthesizeStatement(tokens) {
   if (!tokens.length) {
     throw 'unexpected EOF while reading';
   }
@@ -139,7 +173,7 @@ function parenthesize(tokens) {
     // Handle inner-expressions
     var list = [];
     while (tokens[0] !== ')') {
-      list.push(parenthesize(tokens));
+      list.push(parenthesizeStatement(tokens));
     }
 
     // Pop off ')'
@@ -320,9 +354,11 @@ function toArray(nonArray) {
 }
 
 },{}],6:[function(require,module,exports){
+var comments = /\;(.*)(\n?)/g
 
 module.exports = function tokenize(str) {
-  return str.replace(/\(/g, ' ( ')
+  return str.replace(comments, '')
+            .replace(/\(/g, ' ( ')
             .replace(/\)/g, ' ) ')
             .split(' ')
             .filter(hasLength);
