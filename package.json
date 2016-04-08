@@ -1,6 +1,6 @@
 {
   "name": "brandly-lisp",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "it's a lisp interpreter",
   "main": "index.js",
   "scripts": {

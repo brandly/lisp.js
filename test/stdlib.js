@@ -91,7 +91,7 @@ describe('stdlib', function () {
     it('can begin', function () {
       var lisp = new Lisp();
 
-      var result = lisp.exec('(begin 1 2 3))');
+      var result = lisp.exec('(begin 1 2 3)');
 
       assert.equal(result, 3);
     });

@@ -10,5 +10,6 @@ function Lisp(context) {
 };
 
 Lisp.prototype.exec = function exec(str) {
-  return eval(parse(str), this.globalContext);
+  const results = parse(str).map((statement) => eval(statement, this.globalContext));
+  return results[results.length - 1];
 };
