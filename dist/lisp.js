@@ -131,7 +131,7 @@ module.exports = function eval(x, ctx) {
 var tokenize = require('./tokenize');
 
 module.exports = function parse(str) {
-  return parenthesize(tokenize(str));
+  return parenthesize(tokenize(str)).filter(Array.isArray);
 };
 
 function parenthesize(tokens) {
