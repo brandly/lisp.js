@@ -5,8 +5,22 @@ describe('lisp', function () {
   it('can execute a small program', function () {
     var lisp = new Lisp();
 
-    var result = lisp.exec('(define r 10)\n\n(* pi (* r r))');
-    assert.equal(result, 314.1592653589793);
+    // var result = lisp.exec('(define r 10)\n\n(* pi (* r r))');
+    var program = [
+      '(define factorial (lambda (n)',
+      '',
+      '',
+      '  (if (<= n 1)',
+      '',
+      '',
+      '    n',
+      '    (* n (factorial (- n 1))))))',
+      '',
+      '(factorial 5)',
+      ''
+    ].join('\n')
+    var result = lisp.exec(program);
+    assert.equal(result, 120);
   });
 
   it('can handle cond statements', function () {

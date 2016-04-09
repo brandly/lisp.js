@@ -183,7 +183,7 @@ function parenthesizeStatement(tokens) {
 
     // Pop off ')'
     tokens.shift();
-    return list;
+    return list.filter(stringsWithLength);
 
   } else if (token === ')') {
     throw 'unexpected )';
@@ -197,9 +197,18 @@ function atom(token) {
 
   if (Number.isNaN(number)) {
     // It's a symbol!
-    return token;
+    return token.trim();
   } else {
     return number;
+  }
+}
+
+// Empty strings will confuse the evaluator
+function stringsWithLength(thing) {
+  if (typeof thing === 'string') {
+    return !!thing.length
+  } else {
+    return true
   }
 }
 
