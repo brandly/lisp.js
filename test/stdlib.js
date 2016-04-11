@@ -117,6 +117,54 @@ describe('stdlib', function () {
 
       assert.equal(result, 0.7853981633974483);
     });
+
+    it('can sinh', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(sinh 0)');
+
+      assert.equal(result, 0);
+    });
+
+    it('can cosh', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(cosh 0)');
+
+      assert.equal(result, 1);
+    });
+
+    it('can tanh', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(tanh 1)');
+
+      assert.equal(result, 0.7615941559557649);
+    });
+
+    it('can asinh', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(asinh 0)');
+
+      assert.equal(result, 0);
+    });
+
+    it('can acosh', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(acosh 1)');
+
+      assert.equal(result, 0);
+    });
+
+    it('can atanh', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(atanh 0)');
+
+      assert.equal(result, 0);
+    });
   });
 
   describe('lists', function () {

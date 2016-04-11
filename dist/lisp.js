@@ -361,7 +361,14 @@ module.exports = {
   tan: Math.tan,
   asin: Math.asin,
   acos: Math.acos,
-  atan: Math.atan
+  atan: Math.atan,
+
+  sinh: Math.sinh,
+  cosh: Math.cosh,
+  tanh: Math.tanh,
+  asinh: Math.asinh,
+  acosh: Math.acosh,
+  atanh: Math.atanh
 };
 
 function reduceArguments(fn) {
