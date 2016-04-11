@@ -181,6 +181,22 @@ describe('stdlib', function () {
 
       assert.equal(result, 3);
     });
+
+    it('can raise e a power with exp', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(exp 2)');
+
+      assert.equal(result, 7.3890560989306495);
+    });
+
+    it('can log', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(log 7.389056)');
+
+      assert.equal(result, 1.9999999866111924);
+    });
   });
 
   describe('lists', function () {

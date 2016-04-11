@@ -371,7 +371,10 @@ module.exports = {
   atanh: Math.atanh,
 
   expt: Math.pow,
-  sqrt: Math.sqrt
+  sqrt: Math.sqrt,
+
+  exp: Math.exp,
+  log: Math.log
 };
 
 function reduceArguments(fn) {
