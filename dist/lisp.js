@@ -386,7 +386,9 @@ module.exports = {
   sqrt: Math.sqrt,
 
   exp: Math.exp,
-  log: Math.log
+  log: Math.log,
+
+  print: console.log
 };
 
 function reduceArguments(fn) {
