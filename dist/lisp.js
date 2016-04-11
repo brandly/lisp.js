@@ -368,7 +368,10 @@ module.exports = {
   tanh: Math.tanh,
   asinh: Math.asinh,
   acosh: Math.acosh,
-  atanh: Math.atanh
+  atanh: Math.atanh,
+
+  expt: Math.pow,
+  sqrt: Math.sqrt
 };
 
 function reduceArguments(fn) {

@@ -165,6 +165,22 @@ describe('stdlib', function () {
 
       assert.equal(result, 0);
     });
+
+    it('can raise to a power with expt', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(expt 2 10)');
+
+      assert.equal(result, 1024);
+    });
+
+    it('can sqrt', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(sqrt 9)');
+
+      assert.equal(result, 3);
+    });
   });
 
   describe('lists', function () {
