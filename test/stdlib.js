@@ -69,6 +69,54 @@ describe('stdlib', function () {
       assert.equal(low, 1);
       assert.equal(high, 2);
     });
+
+    it('can sin', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(sin 0)');
+
+      assert.equal(result, 0);
+    });
+
+    it('can cos', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(cos 0)');
+
+      assert.equal(result, 1);
+    });
+
+    it('can tan', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(tan 0)');
+
+      assert.equal(result, 0);
+    });
+
+    it('can asin', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(asin 1)');
+
+      assert.equal(result, 1.5707963267948965);
+    });
+
+    it('can acos', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(acos 0)');
+
+      assert.equal(result, 1.5707963267948965);
+    });
+
+    it('can atan', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(atan 1)');
+
+      assert.equal(result, 0.7853981633974483);
+    });
   });
 
   describe('lists', function () {
