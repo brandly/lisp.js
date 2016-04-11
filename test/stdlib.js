@@ -264,6 +264,30 @@ describe('stdlib', function () {
       assert.deepEqual(result, [true, false, true]);
     });
 
+    it('can be filtered', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(filter number? (list 1 length 3))');
+
+      assert.deepEqual(result, [1, 3]);
+    });
+
+    it('can be reduced', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(reduce (lambda (a b) (+ a b)) (list 1 2 3))');
+
+      assert.deepEqual(result, 6);
+    });
+
+    it('can be reduced with an initial value', function () {
+      var lisp = new Lisp();
+
+      var result = lisp.exec('(reduce (lambda (a b) (+ a b)) (list 1 2 3) 6)');
+
+      assert.deepEqual(result, 12);
+    });
+
     it('can find the max', function () {
       var lisp = new Lisp();
 

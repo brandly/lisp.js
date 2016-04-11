@@ -314,6 +314,18 @@ module.exports = {
     return list.map(fn);
   },
 
+  filter: function (fn, list) {
+    return list.filter(fn);
+  },
+
+  reduce: function (fn, list, initial) {
+    if (typeof initial === 'undefined') {
+      return list.reduce(fn);
+    } else {
+      return list.reduce(fn, initial);
+    }
+  },
+
   max: function (list) {
     return Math.max.apply(null, list);
   },
