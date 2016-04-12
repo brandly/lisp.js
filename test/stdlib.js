@@ -182,7 +182,7 @@ describe('stdlib', function () {
       assert.equal(result, 3);
     });
 
-    it('can raise e a power with exp', function () {
+    it('can raise e to a power with exp', function () {
       var lisp = new Lisp();
 
       var result = lisp.exec('(exp 2)');
