@@ -100,6 +100,17 @@ module.exports = function eval(x, ctx) {
 
     ctx.findContextWithIdentifier(key).set(key, eval(val, ctx));
 
+  } else if (x[0] === 'let') {
+    var vars = x[1],
+        body = x[2];
+
+    var letCtx = new Context({}, ctx);
+    vars.forEach(function (_var) {
+      letCtx.set(_var[0], eval(_var[1], ctx));
+    });
+
+    return eval(body, letCtx);
+
   } else if (x[0] === 'lambda') {        // (lambda (params...) body)
     var params = x[1],
         body = x[2];

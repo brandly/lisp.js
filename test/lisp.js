@@ -52,4 +52,12 @@ describe('lisp', function () {
 
     assert.equal(result, 28.274333882308138);
   });
+
+  it('can handle lets', function () {
+    var lisp = new Lisp();
+
+    var result = lisp.exec('(let ((x 2) (y 4)) (* x y))');
+
+    assert.equal(result, 8);
+  });
 });
