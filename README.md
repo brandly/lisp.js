@@ -22,24 +22,6 @@ console.log(lisp.exec('(+ 2 2)'));
 //  => 4
 ```
 
-or you can use it more interactively
-
-```shell
-$ node repl
-lisp.js v0.0.1
->> (+ 2 2)
-4
->> (define dude (+ 2 2))
->> dude
-4
->> (* 2 dude)
-8
->> (define fact (lambda (n) (if (<= n 1) 1 (* n (fact (- n 1))))))
->> (fact 10)
-3628800
->>
-```
-
 or you can use it in a browser
 
 ```html
@@ -51,7 +33,9 @@ or you can use it in a browser
 </script>
 ```
 
-or you can [try it out](http://brandly.github.io/lisp-repl/)
+or you can [try it out online](http://brandly.github.io/lisp-repl/)
+
+or [install the cli](https://github.com/brandly/lisp-cli#readme)
 
 ### development
 
