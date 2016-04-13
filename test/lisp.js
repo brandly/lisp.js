@@ -5,7 +5,13 @@ describe('lisp', function () {
   it('can execute a small program', function () {
     var lisp = new Lisp();
 
-    // var result = lisp.exec('(define r 10)\n\n(* pi (* r r))');
+    var result = lisp.exec('(define r 10)\n\n(* pi (* r r))');
+    assert.equal(result, 314.1592653589793);
+  });
+
+  it('can execute a program with extraneous whitespace', function () {
+    var lisp = new Lisp();
+
     var program = [
       '(define factorial (lambda (n)',
       '',
